@@ -1,8 +1,7 @@
-﻿namespace SHOPCRUD.Models.DomainModels
+﻿namespace SHOPCRUD.Models
 {
-    public class Client
+    public class AddClientViewModel
     {
-        public Guid Id { get; set; }
         public string Email { get; set; }
         public string Name { get; set; }
         public double TelNubmer { get; set; }
