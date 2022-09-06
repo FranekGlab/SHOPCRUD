@@ -94,6 +94,23 @@ namespace SHOPCRUD.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Delete(UpdateClient model)
+        {
+            var client = await databaseContext.Clients.FindAsync(model.Id);
+
+            if (client != null)
+            {
+                databaseContext.Clients.Remove(client);
+                await databaseContext.SaveChangesAsync();
+
+                return RedirectToAction("Index");
+            }
+
+            return RedirectToAction("Index");
+
+        }
+
     }
 }
     
