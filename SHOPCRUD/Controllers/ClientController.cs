@@ -49,10 +49,49 @@ namespace SHOPCRUD.Controllers
         }
 
 
-        [HttpGet("{id}")]
-        public IActionResult View(Guid id)
+        [HttpGet]
+        public async Task<IActionResult> ViewAsync(Guid id)
         {
-            return View();
+            var client = await databaseContext.Clients.FirstOrDefaultAsync(x => x.Id == id);
+
+            if (client != null)
+            {
+                var viewModel = new UpdateClient()
+                {
+                    Id = client.Id,
+                    Name = client.Name,
+                    Email = client.Email,
+                    Address = client.Address,
+                    TelNubmer = client.TelNubmer,
+                    DateOfBirth = client.DateOfBirth
+                };
+
+                return await Task.Run(() => View("View", viewModel));
+            }
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> View(UpdateClient model)
+        {
+            var client = await databaseContext.Clients.FindAsync(model.Id);
+
+            if(client != null)
+            {
+                client.Name = model.Name;
+                client.Email = model.Email;
+                client.Address = model.Address;
+                client.TelNubmer = model.TelNubmer;
+                client.DateOfBirth = model.DateOfBirth;
+
+                await databaseContext.SaveChangesAsync();
+
+                return RedirectToAction("Index");
+
+            }
+            
+            return RedirectToAction("Index");
         }
 
     }
