@@ -2,6 +2,7 @@
 using SHOPCRUD.Models.DomainModels;
 using Microsoft.AspNetCore.Mvc;
 using SHOPCRUD.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace SHOPCRUD.Controllers
 {
@@ -12,6 +13,13 @@ namespace SHOPCRUD.Controllers
         public ClientController(DataBaseContext databaseContext)
         {
             this.databaseContext = databaseContext;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Index()
+        {
+            var clients = await databaseContext.Clients.ToListAsync();
+            return View(clients);
         }
 
         [HttpGet]
@@ -36,8 +44,17 @@ namespace SHOPCRUD.Controllers
 
             await databaseContext.Clients.AddAsync(client);
             await databaseContext.SaveChangesAsync();
-            return RedirectToAction("Add"); 
+            return RedirectToAction("Index");
 
         }
+
+
+        [HttpGet("{id}")]
+        public IActionResult View(Guid id)
+        {
+            return View();
+        }
+
     }
 }
+    
