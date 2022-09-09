@@ -44,6 +44,7 @@ namespace SHOPCRUD.Controllers
 
             await databaseContext.Clients.AddAsync(client);
             await databaseContext.SaveChangesAsync();
+            TempData["Success"] = "Created Successfully";
             return RedirectToAction("Index");
 
         }
@@ -65,7 +66,7 @@ namespace SHOPCRUD.Controllers
                     TelNubmer = client.TelNubmer,
                     DateOfBirth = client.DateOfBirth
                 };
-
+                TempData["Success"] = "Updated Successfully";
                 return await Task.Run(() => View("View", viewModel));
             }
 
@@ -103,7 +104,7 @@ namespace SHOPCRUD.Controllers
             {
                 databaseContext.Clients.Remove(client);
                 await databaseContext.SaveChangesAsync();
-
+                TempData["Success"] = "Deleted Successfully";
                 return RedirectToAction("Index");
             }
 
