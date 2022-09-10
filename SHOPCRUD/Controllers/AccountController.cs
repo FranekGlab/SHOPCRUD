@@ -8,25 +8,25 @@ namespace SHOPCRUD.Controllers
 {
     public class AccountController : Controller
     {
+        private const string Action = "Index";
+
         public async Task Login(string returnUrl = "/")
         {
             var authenticationProperties = new LoginAuthenticationPropertiesBuilder()
-                .WithRedirectUri(returnUrl)
+                .WithRedirectUri("http://localhost:7246/")
                 .Build();
 
             await HttpContext.ChallengeAsync(Auth0Constants.AuthenticationScheme, authenticationProperties);
         }
 
-        [Authorize]
         public async Task Logout()
         {
             var authenticationProperties = new LogoutAuthenticationPropertiesBuilder()
-                .WithRedirectUri(Url.Action("Index", "Home"))
+                .WithRedirectUri("http://localhost:7246/")
                 .Build();
 
             await HttpContext.SignOutAsync(Auth0Constants.AuthenticationScheme, authenticationProperties);
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            
         }
     }
 }

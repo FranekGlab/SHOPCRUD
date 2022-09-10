@@ -23,7 +23,7 @@ namespace SHOPCRUD.Controllers
            return View(watch);
         }
 
-        [HttpGet("{BrandName}")]
+        /*[HttpGet("{Brandname}")]
         public async Task<IActionResult> Index(string Watchsearch)
         {
             ViewData["Getwatchdetails"] = Watchsearch;
@@ -31,11 +31,11 @@ namespace SHOPCRUD.Controllers
             var watchquery = from x in dataBaseContext.Watches select x;
             if (!String.IsNullOrEmpty(Watchsearch))
             {
-                watchquery = watchquery.Where(x => x.BrandName.Contains(Watchsearch) || x.ModelName.Contains(Watchsearch)); 
+                watchquery = watchquery.Where(x => x.BrandName.Contains(Watchsearch) || x.ModelName.Contains(Watchsearch));
             }
             return View(await watchquery.AsNoTracking().ToListAsync());
         }
-
+        */  
 
         [HttpGet]
         public IActionResult Add()

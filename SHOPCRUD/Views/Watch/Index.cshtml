@@ -8,8 +8,8 @@
 <form method="get" asp-action="Index">
     <p>
         <input type="search" placeholder="Enter BrandName or ModelName" value="@ViewData[" Getwatchdetails"]" name="Watchsearch" style="width:500px;" />
-        <input type="submit" value="Search" class="btn btn-primary"/> |
-        <a asp-action="Index">Get All Watches</a>
+        <input type="submit" value="Search" class="btn btn-primary" /> |
+        <a class="btn btn-dark" asp-action="Index">Get All Watches</a>
     </p>
 </form>
     
@@ -34,7 +34,7 @@
                 <td>@watch.ModelName</td>
                 <td>@watch.Price</td>
                 <td>@watch.ReferenceNumber</td>
-                <td><a href="Watch/View/@watch.Id">View</a></td>
+                <td><a class="btn btn-info" href="Watch/View/@watch.Id">View</a></td>
             </tr>
         }
     </tbody>
