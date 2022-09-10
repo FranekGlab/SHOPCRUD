@@ -26,6 +26,7 @@ namespace SHOPCRUD.Controllers
 
             await HttpContext.SignOutAsync(Auth0Constants.AuthenticationScheme, authenticationProperties);
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            
         }
     }
 }

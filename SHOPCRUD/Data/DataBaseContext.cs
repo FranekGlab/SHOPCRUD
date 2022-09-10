@@ -11,5 +11,7 @@ namespace SHOPCRUD.Data
 
         public DbSet<Client> Clients { get; set; }
 
+        public DbSet<Watch> Watches { get; set; }
+
     }
 }

@@ -1,0 +1,25 @@
+﻿@model SHOPCRUD.Models.AddWatchViewModel
+
+@{
+}
+<h1>Add Watch</h1>
+<form method="post" action="Add" class="mt-5">
+    <div class="mb-3">
+        <label for="" class="form-label">BrandName</label>
+        <input type="text" class="form-control" asp-for="BrandName">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">ModelName</label>
+        <input type="text" class="form-control" asp-for="ModelName">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Price</label>
+        <input type="number" class="form-control" asp-for="Price">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">ReferenceNumber</label>
+        <input type="number" class="form-control" asp-for="ReferenceNumber">
+    </div>
+  
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
