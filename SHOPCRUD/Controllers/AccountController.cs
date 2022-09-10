@@ -13,7 +13,7 @@ namespace SHOPCRUD.Controllers
         public async Task Login(string returnUrl = "/")
         {
             var authenticationProperties = new LoginAuthenticationPropertiesBuilder()
-                .WithRedirectUri("http://localhost:7246/")
+                .WithRedirectUri("https://localhost:7246/")
                 .Build();
 
             await HttpContext.ChallengeAsync(Auth0Constants.AuthenticationScheme, authenticationProperties);
@@ -22,7 +22,7 @@ namespace SHOPCRUD.Controllers
         public async Task Logout()
         {
             var authenticationProperties = new LogoutAuthenticationPropertiesBuilder()
-                .WithRedirectUri("http://localhost:7246/")
+                .WithRedirectUri("https://localhost:7246/")
                 .Build();
 
             await HttpContext.SignOutAsync(Auth0Constants.AuthenticationScheme, authenticationProperties);
