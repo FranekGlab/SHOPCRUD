@@ -10,5 +10,6 @@ po wlaczeniu kontenerow mozna odpalic projekt(nie sprawne).
 SQLServer 2019
 Entity Framework
 Docker
+Do user interfrace - Bootstrap
 
 Aplikacja służy do zarządzania bazą danych za pomocą operacji CRUD.
