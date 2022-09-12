@@ -23,7 +23,7 @@ namespace SHOPCRUD.Controllers
            return View(watch);
         }
 
-        /*[HttpGet("{Brandname}")]
+        /*[HttpGet("{Id}")]
         public async Task<IActionResult> Index(string Watchsearch)
         {
             ViewData["Getwatchdetails"] = Watchsearch;
@@ -34,8 +34,8 @@ namespace SHOPCRUD.Controllers
                 watchquery = watchquery.Where(x => x.BrandName.Contains(Watchsearch) || x.ModelName.Contains(Watchsearch));
             }
             return View(await watchquery.AsNoTracking().ToListAsync());
-        }
-        */  
+        }*/ 
+        
 
         [HttpGet]
         public IActionResult Add()
@@ -57,6 +57,7 @@ namespace SHOPCRUD.Controllers
 
             await dataBaseContext.Watches.AddAsync(watch);
             await dataBaseContext.SaveChangesAsync();
+            TempData["Success"] = "Created Successfully";
             return RedirectToAction("Index"); 
 
         }
@@ -96,6 +97,7 @@ namespace SHOPCRUD.Controllers
                 watch.ReferenceNumber = model.ReferenceNumber;
 
                 await dataBaseContext.SaveChangesAsync();
+                TempData["Success"] = "Updated Successfully";
 
                 return RedirectToAction("Index");
             }
@@ -112,6 +114,7 @@ namespace SHOPCRUD.Controllers
             {
                 dataBaseContext.Watches.Remove(watch);
                 await dataBaseContext.SaveChangesAsync();
+                TempData["Success"] = "Deleted Successfully";
 
                 return RedirectToAction("Index");
             }

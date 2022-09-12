@@ -5,29 +5,29 @@
 <partial name="Notification" />
 <h1>Clients</h1>
 
-<table class="table">
+<table class="table table-light">
     <thead>
         <tr>
-            <th>Id</th>
-            <th>Email</th>
-            <th>Name</th>
-            <th>Tel Number</th>
-            <th>Date Of Birth</th>
-            <th>Address</th>
+            <th> Id</th>
+            <th> Email</th>
+            <th> Name</th>
+            <th> Tel Number</th>
+            <th> Date Of Birth</th>
+            <th> Address</th>
             <th> </th>
         </tr>
     </thead>
     <tbody>
         @foreach (var client in Model)
         {
-            <tr>
+            <tr class="table-dark">
                 <td>@client.Id</td>
                 <td>@client.Email</td>
                 <td>@client.Name</td>
                 <td>@client.TelNubmer</td>
                 <td>@client.DateOfBirth.ToString("dd-MM-yyyy")</td>
                 <td>@client.Address</td>
-                <td><a href="Client/View/@client.Id">View</a></td>
+                <td><a class="btn btn-warning" href="Client/View/@client.Id">View</a></td>
             </tr>
         }
     </tbody>

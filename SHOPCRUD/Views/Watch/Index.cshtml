@@ -2,19 +2,11 @@
 
 @{
 }
-
+<partial name="Notification" />
 <h1>Watches</h1>
 
-<form method="get" asp-action="Index">
-    <p>
-        <input type="search" placeholder="Enter BrandName or ModelName" value="@ViewData[" Getwatchdetails"]" name="Watchsearch" style="width:500px;" />
-        <input type="submit" value="Search" class="btn btn-primary" /> |
-        <a class="btn btn-dark" asp-action="Index">Get All Watches</a>
-    </p>
-</form>
-    
 
-<table class="table">
+<table class="table table-light">
     <thead>
         <tr>
             <th>Id</th>
@@ -28,13 +20,13 @@
     <tbody>
         @foreach (var watch in Model)
         {
-            <tr>
+            <tr class="table-dark">
                 <td>@watch.Id</td>
                 <td>@watch.BrandName</td>
                 <td>@watch.ModelName</td>
                 <td>@watch.Price</td>
                 <td>@watch.ReferenceNumber</td>
-                <td><a class="btn btn-info" href="Watch/View/@watch.Id">View</a></td>
+                <td><a class="btn btn-warning" href="Watch/View/@watch.Id">View</a></td>
             </tr>
         }
     </tbody>
